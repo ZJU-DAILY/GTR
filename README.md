@@ -70,12 +70,5 @@ python main.py -batch_size 64 -train 1 -val 5 -epochs 50 -bert_type 2 -max_len 7
 python main.py -batch_size 64 -train 1 -val 6 -epochs 50 -bert_type 2 -max_len 70 -vocab_size 40311 -city 'beijing' -task 'time_estimate'
 ```
 
-## Citation
-If you use our code for reseach work, please cite our paper as below:
-```
-@article{,
-  title={GTR: General Multi-View Trajectory Representation Learning via Pre-train and Fine-tune},
-  author={Xiangheng Wang, Ziquan Fang, Danlei Hu, Chenglong Huang, Lu Chen, Yunjun Gao},
-  year={2025},
-}
-```
+
+
