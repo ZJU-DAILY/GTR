@@ -1,5 +1,6 @@
 # GTR 
-This is a PyTorch implementation of the paper: GTR: General Multi-View Trajectory Representation Learning via Pre-train and Fine-tune
+This is a PyTorch implementation of the paper: GTR: A General, Multi-View, and Dynamic Framework for Trajectory
+Representation Learning
 
 ![Overview](./framework.png)
 
@@ -69,6 +70,7 @@ python main.py -batch_size 64 -train 1 -val 4 -epochs 50 -bert_type 2 -max_len 7
 python main.py -batch_size 64 -train 1 -val 5 -epochs 50 -bert_type 2 -max_len 70 -vocab_size 40311 -city 'beijing' -task 'classification'
 python main.py -batch_size 64 -train 1 -val 6 -epochs 50 -bert_type 2 -max_len 70 -vocab_size 40311 -city 'beijing' -task 'time_estimate'
 ```
+
 
 
 
