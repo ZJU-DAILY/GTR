@@ -127,8 +127,6 @@ def train_classification_model(args):
 
     if args.train != 4:
         bert = VITwithGAT(args=args, vocab_size=vocab_size, adj=adj, feature=feature).to(device)
-    else:
-        bert = VITwithGAT_ablation(args=args, vocab_size=vocab_size, adj=adj, feature=feature).to(device)
 
     model = TrajBERT(args=args, bert=bert, vocab_size=args.vocab_size).to(device)
     criterion = nn.CrossEntropyLoss().to(device)
@@ -322,8 +320,6 @@ def train_simplify_model(args):
 
     if args.train != 4:
         bert = VITwithGAT(args=args, vocab_size=vocab_size, adj=adj, feature=feature).to(device)
-    else:
-        bert = VITwithGAT_ablation(args=args, vocab_size=vocab_size, adj=adj, feature=feature).to(device)
 
     model = TrajBERT(args=args, bert=bert, vocab_size=trainData.vocab_size).to(device)
     criterion = nn.CrossEntropyLoss(ignore_index=-100).to(device)
@@ -427,8 +423,6 @@ def train_imputation_model(args):
 
     if args.train != 4:
         bert = VITwithGAT(args=args, vocab_size=vocab_size, adj=adj, feature=feature).to(device)
-    else:
-        bert = VITwithGAT_ablation(args=args, vocab_size=vocab_size, adj=adj, feature=feature).to(device)
 
     model = TrajBERT(args=args, bert=bert, vocab_size=trainData.vocab_size).to(device)
     criterion = nn.CrossEntropyLoss(ignore_index=0).to(device)
@@ -533,11 +527,8 @@ def train_generation_predict_model(args):
     else:
         adj, feature = init_adj_feature(args)
 
-    if args.train == 4:
-        bert = VITwithGAT_ablation(args=args, vocab_size=vocab_size, adj=adj, feature=feature).to(device)
-    else:
-        bert = VITwithGAT(args=args, vocab_size=vocab_size, adj=adj, feature=feature).to(device)
 
+    bert = VITwithGAT(args=args, vocab_size=vocab_size, adj=adj, feature=feature).to(device)
     model = TrajBERT(args=args, bert=bert, vocab_size=trainData.vocab_size).to(device)
 
     criterion_CE = nn.CrossEntropyLoss(ignore_index=0).to(device)
@@ -705,6 +696,7 @@ def pretrain_mlm_triplet(args):
                 + f'Acc is {train_acc}, right tokens count is{train_acc_count}'
                 + f', all word amount is {all_word}' + '\n')
         scheduler.step()
+
 
 
 
