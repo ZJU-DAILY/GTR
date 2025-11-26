@@ -219,8 +219,6 @@ def train_time_estimate_model(args):
     vocab_size = args.vocab_size
     if args.train != 4:
         bert = VITwithGAT(args=args, vocab_size=vocab_size, adj=adj, feature=feature).to(device)
-    else:
-        bert = VITwithGAT_ablation(args=args, vocab_size=vocab_size, adj=adj, feature=feature).to(device)
 
     trainData.load(train_input_filepath, device, args)
     testData.load(test_input_filepath, device, args)
@@ -707,6 +705,7 @@ def pretrain_mlm_triplet(args):
                 + f'Acc is {train_acc}, right tokens count is{train_acc_count}'
                 + f', all word amount is {all_word}' + '\n')
         scheduler.step()
+
 
 
 
