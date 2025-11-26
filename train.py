@@ -616,8 +616,8 @@ def train_generation_predict_model(args):
 def pretrain_mlm_triplet(args):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     trainData = MLM_and_triplet_Dataset(args)
-    testData = MLM_Only_Dataset(args)
-    enhancedData = MLM_Only_Dataset(args)
+    testData = MLM_and_triplet_Dataset(args)
+    enhancedData = MLM_and_triplet_Dataset(args)
 
     if args.city == 'beijing':
         train_input_filepath = args.pre_path + '/data/beijing/train_bj.csv'
@@ -705,6 +705,7 @@ def pretrain_mlm_triplet(args):
                 + f'Acc is {train_acc}, right tokens count is{train_acc_count}'
                 + f', all word amount is {all_word}' + '\n')
         scheduler.step()
+
 
 
 
